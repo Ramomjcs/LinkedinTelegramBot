@@ -117,10 +117,10 @@ puppeteer.launch(params).then(async (browser) => {
       // Se não for página de login, encontrou a página correta
       if (hasToastDiv) {
         findCorrectPage = true;
-        if (tryTime >= 10) {
-          let additionalMinute = Math.floor(tryTime%10);
-          maxMinute = maxMinute + additionalMinute;
-        }
+        // if (tryTime >= 10) {
+        //   let additionalMinute = Math.floor(tryTime%10);
+        //   maxMinute = maxMinute + additionalMinute;
+        // }
       } else {
         await page.close();
       }
