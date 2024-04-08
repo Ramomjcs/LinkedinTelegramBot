@@ -53,8 +53,8 @@ const deleteScreenshot = (filePath) => {
 };
 
 const params = {
-  headless: false, // False = Abre navegador
-  executablePath: executablePath()
+  headless: true, // False = Abre navegador
+  executablePath: executablePath(),
 };
 puppeteer.launch(params).then(async (browser) => {
   // TELEGRAM
@@ -76,12 +76,12 @@ puppeteer.launch(params).then(async (browser) => {
   let screenshotOrder = 0;
   let tryTime = 1;
   let isFirstTime = true;
-  let maxMinute = 10;
+  let maxMinute = 5;
 
   console.log("Rodando...");
   while (true) {
     if (!isFirstTime) {
-      const timeToNextRound = 5 * 60; // 5 minutos
+      const timeToNextRound = maxMinute * 60; // Em minutos
       await new Promise((resolve) => {
         let counter = 0;
         const intervalId = setInterval(() => {
@@ -117,9 +117,14 @@ puppeteer.launch(params).then(async (browser) => {
       // Se não for página de login, encontrou a página correta
       if (hasToastDiv) {
         findCorrectPage = true;
+        if (tryTime >= 10) {
+          let additionalMinute = Math.floor(tryTime%10);
+          maxMinute = maxMinute + additionalMinute;
+        }
       } else {
         await page.close();
       }
+
       tryTime++;
     }
     console.log("\n Entrou na Página");
