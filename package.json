@@ -1,0 +1,19 @@
+{
+  "name": "linkedinbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ramom",
+  "license": "ISC",
+  "dependencies": {
+    "@lem0-packages/puppeteer-page-proxy": "^1.4.1",
+    "dotenv": "^16.4.5",
+    "node-telegram-bot-api": "^0.65.1",
+    "puppeteer": "^22.6.3",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
