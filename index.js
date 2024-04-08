@@ -31,7 +31,7 @@ const sendMessageTelegram = async (bot, chatId, message) => {
 };
 
 const sendPrintTelegram = async (bot, chatId, screenshotName, message) => {
-  const pathImage = `/Users/ramomjcs/Documents/Codes/LinkedinBot/${screenshotName}`;
+  const pathImage = `/Users/ramomjcs/Documents/Codes/LinkedinTelegramBot/${screenshotName}`;
   bot
     .sendPhoto(chatId, pathImage)
     .then((sentMessage) => {
